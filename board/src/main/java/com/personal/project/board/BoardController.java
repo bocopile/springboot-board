@@ -1,4 +1,4 @@
-package com.example.demo.board;
+package com.personal.project.board;
 
 import java.util.Optional;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.user.User;
-import com.example.demo.user.UserSingleton;
+import com.personal.project.user.User;
+import com.personal.project.user.UserSingleton;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.personal.project.config;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-import com.example.demo.user.UserService;
+import com.personal.project.user.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 

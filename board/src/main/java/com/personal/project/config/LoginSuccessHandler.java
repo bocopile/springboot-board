@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.personal.project.config;
 
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 

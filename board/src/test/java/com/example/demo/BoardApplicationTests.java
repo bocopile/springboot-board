@@ -10,10 +10,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.board.Board;
-import com.example.demo.board.BoardRepository;
-import com.example.demo.user.User;
-import com.example.demo.user.UserRepository;
+import com.personal.project.board.Board;
+import com.personal.project.board.BoardRepository;
+import com.personal.project.user.User;
+import com.personal.project.user.UserRepository;
 
 import lombok.extern.slf4j.Slf4j;
 

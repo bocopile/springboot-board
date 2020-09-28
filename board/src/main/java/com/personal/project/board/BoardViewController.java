@@ -1,4 +1,4 @@
-package com.example.demo.board;
+package com.personal.project.board;
 
 import java.util.Optional;
 

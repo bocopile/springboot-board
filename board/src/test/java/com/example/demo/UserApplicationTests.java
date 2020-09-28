@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.user.UserRepository;
+import com.personal.project.user.UserRepository;
 
 import lombok.extern.slf4j.Slf4j;
 

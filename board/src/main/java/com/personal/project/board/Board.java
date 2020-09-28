@@ -1,4 +1,4 @@
-package com.example.demo.board;
+package com.personal.project.board;
 
 import java.sql.Timestamp;
 
@@ -15,7 +15,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.example.demo.user.User;
+import com.personal.project.user.User;
 
 import lombok.Data;
 

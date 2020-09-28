@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.personal.project;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.board.Board;
-import com.example.demo.board.BoardRepository;
-import com.example.demo.user.User;
-import com.example.demo.user.UserRepository;
+import com.personal.project.board.Board;
+import com.personal.project.board.BoardRepository;
+import com.personal.project.user.User;
+import com.personal.project.user.UserRepository;
 
 @SpringBootApplication
 public class BoardApplication implements CommandLineRunner {
