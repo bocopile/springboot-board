@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="common/body">
+
+<body>
+<div layout:fragment="content" >
+            <div id="page-inner">
+			 <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            	공지사항
+                        </h1>
+                    </div>
+                </div> 
+                 <!-- /. ROW  -->
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          	 공지사항 등록 페이지 입니다.
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" id="form" method="post">
+  
+                                        <div class="form-group">
+                                            <label>제목</label>
+                                            <input class="form-control" placeholder="제목을 입력해 주세요." id="title" name="title">
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>내용</label>
+                                            <textarea style="resize: none;" class="form-control" rows="3" id="contents" name="contents"></textarea>
+                                        </div>
+
+                                        <button type="button" class="btn btn-default" onclick="save();">제출</button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-6">
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			<footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
+			</div>
+			<script type="text/javascript">
+			    function save() {
+					var title = $("#title").val();
+					var contents = $("#contents").val();
+					
+					if(title == null || title == ''){
+						alert("제목을 적어주세요.");
+						$("#title").focus();
+						return false;
+					}
+					
+					if(contents == null || contents == ''){
+						alert("내용을 적어주세요.");
+						$("#contents").focus();
+						return false;
+					}
+					
+					var form = $('#form').serializeObject();
+					
+					$.ajax({
+						type: "PUT",
+						url : "/board/save",			          
+						contentType: "application/json; charset=UTF-8",	
+						processData:false,
+						data: JSON.stringify(form),
+						dataType : "json",
+	                   success: function (data) {
+	                       alert("등록되었습니다.");
+	                       location.href="/board/list"
+	                     },
+	                     error: function (e) {
+	                       alert("등록 도중 오류가 발생했습니다.");
+	                       
+	                     }
+					});
+					
+			    }
+			</script>
+           </div>
+
+
+
+
+
+</body>
+</html>

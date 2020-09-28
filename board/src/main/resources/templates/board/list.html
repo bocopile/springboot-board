@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="common/body">
+
+<body>
+<div layout:fragment="content" >
+         <div id="page-inner">
+			 <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            공지사항
+                        </h1>
+                    </div>
+                </div> 
+                 <!-- /. ROW  -->
+               
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             리스트
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>번호</th>
+                                            <th>제목</th>
+                                            <th>작성일</th>
+                                            <th>작성자</th>
+											<th>최종작성일</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        	<tr th:each="board : ${list}"  class="odd gradeX">
+												<td th:text="${board.no}"></td>
+	                                            <td th:text="${board.title}" th:onclick="|javascript:view('${board.no}')|"></td>
+												<td th:text="${#dates.format(board.created, 'yyyy-MM-dd HH:mm')}"></td>
+												<td th:if="${board.modifier} == null" th:text="${board.creator.name}"></td>
+                                                <td th:unless="${board.modifier} == null" th:text="${board.modifier.name}"></td>
+                                                <td th:if="${board.modified} == null" th:text="${#dates.format(board.created, 'yyyy-MM-dd HH:mm')}"></td>
+                                                <td th:unless="${board.modified} == null" th:text="${#dates.format(board.modified, 'yyyy-MM-dd HH:mm')}"></td>
+	                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                	<div class="col-sm-6">
+                                	<a href="/board/write" class="btn btn-primary">등록</a>
+                                	</div>
+                                	<div class="col-sm-6">
+                                		<div th:if="${list.totalPages > 0}" class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+                                		
+                                			<ul class="pagination" >
+                                				<li th:class="${list.number eq 0}?'disabled':''"  class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
+                                				
+                                				<a th:if="${!list.first}" th:href="@{/board/list(page=${list.number-1})}">Previous</a>
+                                				<a th:unless="${!list.first}" href="#">Previous</a>
+                                				</li>
+	                                        <li th:each="no : ${#numbers.sequence(0, list.totalPages-1)}" th:class="${list.number eq no}?'active':''" class="paginate_button active">
+	                                            <a th:href="@{/board/list(page=${no})}" th:text="${no}"></a>
+	                                        </li>
+                                				<li th:class="${list.number+1 ge list.totalPages}?'disabled':''" class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next">
+                                				<a th:if="${list.number+1 ge list.totalPages}" href="#">Next</a>
+                                				<a th:unless="${list.number+1 ge list.totalPages}" th:href="@{/board/list(page=${list.number+1})}">Next</a>
+                                				</li>
+                                			</ul>
+                                		</div>
+                                	</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+                <!-- /. ROW  -->
+        </div>	
+<script type="text/javascript">
+    function view(idx) {
+        var no = idx;
+        location.href="/board/view?no="+no;
+    }
+</script>
+           </div>
+
+
+
+
+
+</body>
+</html>

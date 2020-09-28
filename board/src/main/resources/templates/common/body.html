@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="common/head :: mainHead"> </head>
+  <body>
+    <div id="wrapper">
+
+        <nav th:replace="common/topNav"></nav>
+      	<nav th:replace="common/leftMenu"></nav>
+
+      	<div layout:fragment="content" id="page-wrapper">
+      	
+      	</div>
+     
+
+    </div>
+    
+ <footer th:replace="common/footer :: mainFooter"></footer>
+
+  </body>
+ </html>
